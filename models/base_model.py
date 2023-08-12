@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# The BaseModel script
+"""
+The BaseModel script
+"""
 import uuid
 from datetime import datetime
 import models
@@ -9,7 +11,9 @@ import models
 class BaseModel:
     """The class BaseModel is made functional"""
     def __init__(self, *args, **kwargs):
-        # The __init__ function instantiates objects for BaseModel
+        """
+        The __init__ function instantiates objects for BaseModel
+        """
         if not kwargs:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
@@ -25,12 +29,16 @@ class BaseModel:
                     setattr(self, key, value)
 
     def __str__(self):
-        # Function that formats string attributes for BaseModel
+        """
+        Function that formats string attributes for BaseModel
+        """
         return "[{}] ({}) {}".\
             format(type(self).__name__, self.id, self.__dict__)
 
     def save(self):
-        # Function that updates BaseModel from storage
+        """
+        Function that updates BaseModel from storage
+        """
         self.updated_at = datetime.now()
         models.storage.save()
 
