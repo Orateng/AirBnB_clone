@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 # The class BaseModel is imported
 from models.base_model import BaseModel
-# The module BaseModel is from models
 """The User class"""
 
 

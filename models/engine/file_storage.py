@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 # The script for FileStorage class
 import json
-# The class FileStorage is created
+"""The class FileStorage is created"""
 
 
 class FileStorage:
-    # The class FileStorage objects
+    """The class FileStorage objects"""
     __file_path = "file.json"
     __objects = {}
 
-    # The function all for FileStorage class
     def all(self):
         """
         The function all returns
@@ -17,7 +16,6 @@ class FileStorage:
         """
         return FileStorage.__objects
 
-    # The new function for FileStorage class
     def new(self, obj):
         """
         sets in __objects the obj with key
@@ -26,7 +24,6 @@ class FileStorage:
         key = "{}.{}".format(type(obj).__name__, obj.id)
         FileStorage.__objects[key] = obj
 
-    # The save function for class FileStorage
     def save(self):
         """
         serializes __objects to the
@@ -38,7 +35,6 @@ class FileStorage:
         with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
             json.dump(my_dict, f)
 
-    # The reload function for FileStorage class
     def reload(self):
         """
         deserializes the JSON file to __objects
