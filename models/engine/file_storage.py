@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # The script for FileStorage class
 import json
+import models
 """The class FileStorage is created"""
 
 
@@ -14,7 +15,7 @@ class FileStorage:
         The function all returns
         the dictionary object __objects
         """
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """
@@ -32,7 +33,7 @@ class FileStorage:
         my_dict = {}
         for key, value in FileStorage.__objects.items():
             my_dict[key] = value.to_dict()
-        with open(FileStorage.__file_path, "w", encoding="utf-8") as f:
+        with open(FileStorage.__file_path, mode="w", encoding="UTF8") as f:
             json.dump(my_dict, f)
 
     def reload(self):
@@ -41,10 +42,10 @@ class FileStorage:
         (only if the JSON file (__file_path) exists
         """
         try:
-            with open(FileStorage.__file_path, encoding="UTF-8") as f:
+            with open(FileStorage.__file_path, encoding="UTF8") as f:
                 FileStorage.__objects = json.load(f)
             for key, value in FileStorage.__objects.items():
-                class_name = value["class"]
+                class_name = value["__class__"]
                 class_name = models.classes[class_name]
                 FileStorage.__objects[key] = class_name(**value)
         except FileNotFoundError:
