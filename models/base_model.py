@@ -5,7 +5,6 @@ The BaseModel script
 import uuid
 from datetime import datetime
 import models
-"""The BaseModel class is created"""
 
 
 class BaseModel:
