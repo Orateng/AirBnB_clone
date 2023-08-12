@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 # The modules used for the command interpreter
 import cmd
-# from models.base_model import BaseModel
-# from models import storage
+from models.base_model import BaseModel
+import model
 # The command interpreter is made in HBNBCommand class
 
 
@@ -48,10 +48,10 @@ class HBNBCommand(cmd.Cmd):
         # The create function maintain class objects
         if line == "" or line is None:
             print("** class name missing **")
-        elif line not in storage.classes():
+        elif line not in model.storage.classes():
             print("** class doesn't exist **")
         else:
-            b = storage.classes()[line]()
+            b = model.storage.classes()[line]()
             b.save()
             print(b.id)
 
