@@ -81,7 +81,7 @@ class TestBase(unittest.TestCase):
     def test_type_create(self):
         """Tests instances of class attribute"""
         my_model_dict = self.my_model.to_dict()
-        new_model= BaseModel(my_model_dict)
+        new_model = BaseModel(my_model_dict)
         self.assertTrue(isinstance(new_model.created_at, datetime.datetime))
 
     def test_type_update(self):
