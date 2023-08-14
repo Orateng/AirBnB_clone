@@ -6,6 +6,7 @@ import unittest
 from models.base_model import BaseModel
 import datetime
 
+
 class TestBase(unittest.TestCase):
     """Perform unittests for class TestBase"""
 
@@ -29,7 +30,7 @@ class TestBase(unittest.TestCase):
     def test_to_dict(self):
         """Tests dict{} method"""
         self.assertEqual("<class 'dict'>",
-                          str(type(self.my_model.to_dict())))
+                         str(type(self.my_model.to_dict())))
 
     def test_to_dict_class(self):
         """Tests the dict{} class"""
