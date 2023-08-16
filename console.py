@@ -10,40 +10,24 @@ class HBNBCommand(cmd.Cmd):
     # The command interpreter is implemented
     prompt = '(hbnb)'
 
-    """
-    The help function for the command
-    interpreter HBNBCommand class
-    """
     def help_help(self):
         """
         help command for a documented description
         """
         print("Help command")
 
-    """
-    The EOF function in implemented
-    for HBNBCommand class
-    """
     def do_EOF(self, line):
         """
         EOF command to exit the program
         """
         return True
 
-    """
-    The quit function is implemented for
-    HBNBCommand class
-    """
     def do_quit(self, line):
         """
         Quit command to exit the program
         """
         return True
 
-    """
-    The create funtion is implemented for
-    HBNBCommand class
-    """
     def do_create(self, line):
         # The create function maintain class objects
         if line == "" or line is None:
@@ -55,6 +39,9 @@ class HBNBCommand(cmd.Cmd):
             b.save()
             print(b.id)
 
+    def emptyline(self):
+        """Emptyline method that should not do anything"""
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
