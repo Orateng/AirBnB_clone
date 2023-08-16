@@ -2,7 +2,7 @@
 # The modules used for the command interpreter
 import cmd
 from models.base_model import BaseModel
-import model
+
 # The command interpreter is made in HBNBCommand class
 
 
