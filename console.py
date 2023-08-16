@@ -1,13 +1,12 @@
 #!/usr/bin/python3
-# The modules used for the command interpreter
+""" The modules used for the command interpreter"""
 import cmd
 from models.base_model import BaseModel
 
-# The command interpreter is made in HBNBCommand class
 
 
 class HBNBCommand(cmd.Cmd):
-    # The command interpreter is implemented
+    """The command interpreter is implemented"""
     prompt = '(hbnb)'
 
     def help_help(self):
@@ -29,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, line):
-        # The create function maintain class objects
+        """The create function maintain class objects"""
         if line == "" or line is None:
             print("** class name missing **")
         elif line not in model.storage.classes():
